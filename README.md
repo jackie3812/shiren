@@ -1,6 +1,3 @@
-# shiren
-just for practicing how to write some codes
-test;P
-test2!
-test3
-test fix server time!
+# What is this for?
+Just practice to write Perl code without using WAF.
+I'm wellcomimg any of your comment of my programming design!

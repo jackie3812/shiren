@@ -3,6 +3,9 @@ use warnings;
 
 use Plack::App::URLMap;
 
+use lib qw{ pm };
+use Shiren::Page::Main;
+
 my $app1 = sub {
     my $env = shift;
     return [
@@ -32,7 +35,7 @@ my $app3 = sub {
 };
 
 my $urlmap = Plack::App::URLMap->new;
-$urlmap->map("/" => $app1);
+$urlmap->map("/" => Shiren::Page::Main::index);
 $urlmap->map("/fuga" => $app2);
 $urlmap->map("/fuga/piyo" => $app3);
 

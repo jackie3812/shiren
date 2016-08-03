@@ -3,15 +3,12 @@ package Shiren::Page::Main;
 use strict;
 use warnings;
 
+use parent qw/Shiren::Page::Base/;
+
 sub index {
-    my $app = sub {
-        my $env = shift;
-        return [
-            200,
-            [ 'Content-Type' => 'text/plain' ],
-            [ "root directory here" ],
-        ];
-    }
+    my $class = shift;
+    my $env = shift;
+    $class->redirect_to("/fuga");
 }
 
 1;

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 sub index {
-    my $app1 = sub {
+    my $app = sub {
         my $env = shift;
         return [
             200,

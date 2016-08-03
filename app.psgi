@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Plack::App::URLMap;
+use Plack::Builder;
 
 use lib qw{ pm };
 use Shiren::Page::Main;
@@ -24,9 +24,12 @@ my $app2 = sub {
         ];
 };
 
-my $urlmap = Plack::App::URLMap->new;
-$urlmap->map("/" => Shiren::Page::Main::index);
-$urlmap->map("/fuga" => $app1);
-$urlmap->map("/fuga/piyo" => $app2);
-
-my $app = $urlmap->to_app;
+builder {
+	# describe middleware here like below when in need
+	# enable "Session", store=> Plack::Session::Store::File->new(...);
+    mount '/fuga' => builder {
+        mount '/piyo' => $app2;
+        mount '/' => $app1;
+    };
+	mount '/' => Shiren::Page::Main->index;
+};

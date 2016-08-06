@@ -11,33 +11,34 @@ use Shiren::Func::Xslate;
 
 sub to_app {
 	my $class = shift;
-	my ($req,$val) = @_; # $req is Plack::Request instance. $val contains some parameters created by Page layer
+	my ($req, $var) = @_; # $req is Plack::Request instance. $var contains some parameters created by Page layer
 
 	my $status = $class->create_status;
 	my $header = $class->create_header;
-	my $body = $class->create_body($val);
+	my $body = $class->create_body($var);
 
 	my $res = $req->new_response($status, $header, $body);
 	$res->finalize;
 }
 
-sub create_stutus {
+sub create_status {
 	my $class = shift;
 	return 200;
 }
 
 sub create_header {
 	my $class = shift;
-	return 'Content-Type' => 'text/plain'; # TODO 適当に入れたので動くかもわからん
+	return +{ 'Content-Type' => 'text/html' };
 }
 
 sub create_body {
 	my $class = shift;
-	my ($val) = @_;
+	my ($var) = @_;
 	# ここでxslateファイルをパースしてbodyを作成する
 	# TODO やるべきことは
-	# 1:$valをxslateに渡してテンプレート内で参照できる形にすること
+	# 1:$varをxslateに渡してテンプレート内で参照できる形にすること
 	# 2:.txファイルを渡された引数から(テンプレ名渡す必要ありそう)参照してくること
+	return "sample text"
 }
 
 1;

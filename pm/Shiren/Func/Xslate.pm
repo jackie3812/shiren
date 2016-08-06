@@ -7,7 +7,7 @@ use Text::Xslate;
 
 # override
 sub new {
-	$class = shift;
+	my $class = shift;
 
 	return Text::Xslate->new(
 		syntax => 'TTerse'

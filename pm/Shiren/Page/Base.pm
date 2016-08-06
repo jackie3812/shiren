@@ -3,12 +3,13 @@ package Shiren::Page::Base;
 use strict;
 use warnings;
 
+use Plack::Request;
 
-#### TODO
-# $appのためのステータスコード返すメソッド用意
-# $appのためのtext-type返すメソッド用意
-# $appのためのhtmlを返すor橋渡しメソッド用意
-###
+sub request {
+	my $class = shift;
+	my ($env) = @_;
 
+	return Plack::Request->new($env);
+}
 
 1;

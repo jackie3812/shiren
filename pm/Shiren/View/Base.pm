@@ -21,11 +21,13 @@ sub to_app {
 	$res->finalize;
 }
 
+# とりあえず200だけ。エラーページではoverrideする。または引数を渡して返り値を変えられるようにする
 sub create_status {
 	my $class = shift;
 	return 200;
 }
 
+# statusと同じくとりあえずtxt/htmlを返す
 sub create_header {
 	my $class = shift;
 	return +{ 'Content-Type' => 'text/html' };

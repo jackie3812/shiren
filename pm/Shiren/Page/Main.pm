@@ -5,6 +5,7 @@ use warnings;
 
 use Shiren::Func::Util;
 use Shiren::View::Main;
+use Shiren::Model::User;
 use parent qw/Shiren::Page::Base/;
 
 sub index {
@@ -17,9 +18,20 @@ sub index {
 		my $sample_var = "sample var";
 		my $sample_var2 = "fugapiyo";
 
+		# TODO PageはいきなりModel呼ばないのであとで消す
+		my $dsn = "dbi:mysql:database=piyo;host=peko";
+		my $username = "hogehoge";
+		my $password = "fugafuga";
+		my %connect_options = ();
+		my $teng = Shiren::Model::User->new(
+			connect_info => [ $dsn, $username, $password, \%connect_options ]);
+		my $row = $teng->single('user', {id => 1});
+		my $name = $row->name;
+
 		my $var = +{};
 		$var->{sample_var} = $sample_var;
 		$var->{sample_var2} = $sample_var2;
+		$var->{name_from_db} = $name;
 
 		Shiren::View::Main->index($req, $var);
 	}

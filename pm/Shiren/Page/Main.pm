@@ -8,20 +8,21 @@ use Shiren::View::Main;
 use parent qw/Shiren::Page::Base/;
 
 sub index {
-    my $class = shift;
+	my $class = shift;
 	return sub {
-    my $env = shift;
-	my $req = $class->request($env);
+		my $env = shift;
+		my $req = $class->request($env);
 
-	# ここでFunc層とやり取りをして変数を集めてくる
-	my $sample_var = "sample var";
-	my $sample_var2 = "sample var2";
+		# ここでFunc層とやり取りをして変数を集めてくる
+		my $sample_var = "sample var";
+		my $sample_var2 = "fugapiyo";
 
-	my $view = +{};
-	$view->{sample_var} = $sample_var;
-	$view->{sample_var2} = $sample_var2;
+		my $var = +{};
+		$var->{sample_var} = $sample_var;
+		$var->{sample_var2} = $sample_var2;
 
-	Shiren::View::Main->index($req, $view);
-}}
+		Shiren::View::Main->index($req, $var);
+	}
+}
 
 1;

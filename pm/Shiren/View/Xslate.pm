@@ -1,4 +1,4 @@
-package Shiren::Func::Xslate;
+package Shiren::View::Xslate;
 
 use strict;
 use warnings;

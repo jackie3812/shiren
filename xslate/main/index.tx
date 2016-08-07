@@ -1,0 +1,3 @@
+this is index template<br>
+sample_var:[% sample_var %]<br>
+sample_var2:[% sample_var2 %]<br>

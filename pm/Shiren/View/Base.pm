@@ -3,7 +3,9 @@ package Shiren::View::Base;
 use strict;
 use warnings;
 
-use Shiren::Func::Xslate;
+use Carp qw/croak/;
+use Text::Xslate;
+use Shiren::View::Xslate;
 
 # This class aims to return PSGI format value(meaning $app described Plack in CPAN);
 # input from Page layer with some values then format and output $app
@@ -11,13 +13,11 @@ use Shiren::Func::Xslate;
 
 sub to_app {
 	my $class = shift;
-	my ($req, $var) = @_; # $req is Plack::Request instance. $var contains some parameters created by Page layer
-
+	my ($req, $html) = @_; # $req is Plack::Request instance
 	my $status = $class->create_status;
 	my $header = $class->create_header;
-	my $body = $class->create_body($var);
 
-	my $res = $req->new_response($status, $header, $body);
+	my $res = $req->new_response($status, $header, $html);
 	$res->finalize;
 }
 
@@ -33,14 +33,34 @@ sub create_header {
 	return +{ 'Content-Type' => 'text/html' };
 }
 
-sub create_body {
+sub render {
 	my $class = shift;
-	my ($var) = @_;
-	# ここでxslateファイルをパースしてbodyを作成する
-	# TODO やるべきことは
-	# 1:$varをxslateに渡してテンプレート内で参照できる形にすること
-	# 2:.txファイルを渡された引数から(テンプレ名渡す必要ありそう)参照してくること
-	return "sample text"
+	my ($file_name, $view) = @_;
+
+	my $tx = Shiren::View::Xslate->new();
+	my $file_path = $class->create_file_path_by_file_name($file_name);
+
+	return $tx->render($file_path, $view);
+}
+
+# 1つのViewは1つのxslate配下のdir_nameと1対1対応
+sub create_file_path_by_file_name {
+	my $class = shift;
+	my ($file_name) = @_;
+
+	my $class_dir_name;
+	if ($class =~ /Shiren::View::.*/) {
+		$class_dir_name = $class;
+		$class_dir_name =~ s/Shiren::View:://;
+	} else {
+		croak ("class name must be like Shiren::View::Hoge class name:$class");
+	}
+
+	# ::を/に置換してから、小文字にして末尾に.txをつける
+	my $xslate_dir_name = $class_dir_name;
+	$xslate_dir_name =~ s/::/\//g;
+	$xslate_dir_name = lc($xslate_dir_name);
+	return sprintf("xslate/%s/%s.tx", $xslate_dir_name, $file_name);
 }
 
 1;

@@ -7,10 +7,13 @@ use parent qw/Shiren::View::Base/;
 
 sub index {
 	my $class = shift;
-	my ($req, $view) = @_;
+	my ($req, $var) = @_;
 
-	# TODO xslateに渡すように$viewを整形する必要あり
-	$class->to_app($req, $view);
+	# ここで$varを整形して$viewにつめる
+	my $view = $var;
+	my $html = $class->render("index", $view);
+
+	$class->to_app($req, $html);
 }
 
 1;

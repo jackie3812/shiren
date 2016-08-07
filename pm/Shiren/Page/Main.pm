@@ -18,14 +18,7 @@ sub index {
 		my $sample_var = "sample var";
 		my $sample_var2 = "fugapiyo";
 
-		# TODO PageはいきなりModel呼ばないのであとで消す
-		my $dsn = "dbi:mysql:database=piyo;host=peko";
-		my $username = "hogehoge";
-		my $password = "fugafuga";
-		my %connect_options = ();
-		my $teng = Shiren::Model::User->new(
-			connect_info => [ $dsn, $username, $password, \%connect_options ]);
-		my $row = $teng->single('user', {id => 1});
+		my $row = Shiren::Model::User->select(1);
 		my $name = $row->name;
 
 		my $var = +{};

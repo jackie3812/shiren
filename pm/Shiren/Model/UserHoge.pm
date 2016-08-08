@@ -1,4 +1,4 @@
-package Shiren::Model::User;
+package Shiren::Model::UserHoge;
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ sub select {
 	my ($id) = @_;
 
 	my $teng = Shiren::Model->get_teng_obj;
-	return $teng->single('user', { id => $id });
+	return $teng->single('userhoge', { id => $id });
 }
 
 1;

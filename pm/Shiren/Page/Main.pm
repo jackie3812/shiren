@@ -31,6 +31,10 @@ sub index {
 		$var->{name_from_db} = $name;
 		$var->{name_from_db_hoge} = $namehoge;
 
+		use Shiren::Func::Cache::Local;
+		my $rand = Shiren::Func::Cache::Local->cachable("rand", sub{ rand(10000) });
+		$var->{rand} = $rand;
+
 		Shiren::View::Main->index($req, $var);
 	}
 }

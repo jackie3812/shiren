@@ -3,13 +3,19 @@ package Shiren::Model;
 use strict;
 use warnings;
 
+use Shiren::Func::Cache::Local;
 use parent qw/Teng/;
 
-# TODO 毎回connectするのではなく、キャッシュさせる
 sub get_teng_obj {
 	my $class = shift;
-	my $teng = $class->new(
-		connect_info => [ dsn(), username(), password(), \(connect_options()) ]
+
+	return Shiren::Func::Cache::Local->cachable(
+		"teng_obj",
+		sub {
+			$class->new(
+				connect_info => [ dsn(), username(), password(), \(connect_options()) ]
+			);
+		}
 	);
 }
 

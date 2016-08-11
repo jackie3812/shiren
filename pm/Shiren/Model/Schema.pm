@@ -1,16 +1,26 @@
-package Shiren::Model::Schema;
-
+package Shiren::Mode;::Schema;
+use strict;
+use warnings;
 use Teng::Schema::Declare;
-
 table {
-	name 'user';
-	pk 'id';
-	columns qw(id name created_at);
+    name 'user';
+    pk 'id';
+    columns (
+        {name => 'id', type => 4},
+        {name => 'name', type => 12},
+        {name => 'created_at', type => 4},
+    );
 };
 
 table {
-	name 'userhoge';
-	pk 'id';
-	columns qw(id name created_at);
+    name 'userhoge';
+    pk 'id';
+    columns (
+        {name => 'id', type => 4},
+        {name => 'name', type => 12},
+        {name => 'created_at', type => 4},
+    );
 };
-1
+
+1;
+

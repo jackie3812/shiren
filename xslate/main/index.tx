@@ -1,6 +1,6 @@
-this is index template<br>
-sample_var:[% sample_var %]<br>
-sample_var2:[% sample_var2 %]<br>
-name_from_db:[% name_from_db%]<br>
-name_from_db_hoge:[% name_from_db_hoge%]<br>
-rand:[% rand %]<br>
+Wellcome to Shiren!!!!<br>
+
+Please Sing Up or Sing in to start the game! <br>
+
+<a href="/signup">Sign up</a><br>
+<a href="/login">Sign in</a><br>

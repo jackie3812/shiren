@@ -4,7 +4,7 @@ use warnings;
 use Plack::Builder;
 
 use lib qw{ pm };
-use Shiren::Page::Main;
+use Shiren::Dispatcher;
 
 my $app1 = sub {
     my $env = shift;
@@ -31,5 +31,5 @@ builder {
         mount '/piyo' => $app2;
         mount '/' => $app1;
     };
-	mount '/' => Shiren::Page::Main->index;
+	mount '/' => Shiren::Dispatcher->dispatch("Main::Index");
 };

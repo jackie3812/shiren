@@ -35,10 +35,10 @@ sub create_header {
 
 sub render {
 	my $class = shift;
-	my ($file_name, $view) = @_;
+	my ($view) = @_;
 
 	my $tx = Shiren::View::Xslate->new();
-	my $file_path = $class->create_file_path_by_file_name($file_name);
+	my $file_path = $class->create_file_path_by_file_name;
 
 	return $tx->render($file_path, $view);
 }
@@ -46,7 +46,6 @@ sub render {
 # 1つのViewは1つのxslate配下のdir_nameと1対1対応
 sub create_file_path_by_file_name {
 	my $class = shift;
-	my ($file_name) = @_;
 
 	my $class_dir_name;
 	if ($class =~ /Shiren::View::.*/) {
@@ -60,7 +59,7 @@ sub create_file_path_by_file_name {
 	my $xslate_dir_name = $class_dir_name;
 	$xslate_dir_name =~ s/::/\//g;
 	$xslate_dir_name = lc($xslate_dir_name);
-	return sprintf("xslate/%s/%s.tx", $xslate_dir_name, $file_name);
+	return sprintf("xslate/%s.tx", $xslate_dir_name);
 }
 
 1;

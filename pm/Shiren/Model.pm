@@ -3,20 +3,20 @@ package Shiren::Model;
 use strict;
 use warnings;
 
-use Shiren::Func::Cache::Local;
 use parent qw/Teng/;
 
 sub get_teng_obj {
 	my $class = shift;
+	my ($c) = @_;
 
-	return Shiren::Func::Cache::Local->cachable(
-		"teng_obj",
-		sub {
-			$class->new(
-				connect_info => [ dsn(), username(), password(), \(connect_options()) ]
-			);
-		}
-	);
+	my $teng_obj = $c->get("teng_obj");
+
+	unless (defined $teng_obj) {
+		$teng_obj = $class->new(connect_info => [ dsn(), username(), password(), \(connect_options()) ]);
+		$c->set("teng_obj", $teng_obj);
+	}
+
+	return $teng_obj;
 }
 
 sub dsn { "dbi:mysql:database=shiren;host=localhost" }

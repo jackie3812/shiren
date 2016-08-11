@@ -5,6 +5,7 @@ use warnings;
 
 use Plack::Request;
 use Carp;
+use Shiren::Page::Context;
 
 use parent qw/Class::Accessor/;
 __PACKAGE__->follow_best_practice;
@@ -16,7 +17,7 @@ sub new {
 	my ($env) = @_;
 
 	my $request = $class->request($env);
-	my $context = +{}; # Shiren::Page::Context->new; # TODO Page層が自由に呼び出せる。リクエストキャッシュしたいものはここに突っ込む
+	my $context = Shiren::Page::Context->new; # Func層に引き渡して使う。リクエストキャッシュしたいものはここに突っ込む。
 	my $pre_action_var = +{};
 	my $action_var = +{};
 	my $post_action_var = +{};

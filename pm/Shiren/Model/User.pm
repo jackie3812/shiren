@@ -7,9 +7,9 @@ use Shiren::Model;
 
 sub select {
 	my $class = shift;
-	my ($id) = @_;
+	my ($c, $id) = @_;
 
-	my $teng = Shiren::Model->get_teng_obj;
+	my $teng = Shiren::Model->get_teng_obj($c);
 	return $teng->single('user', { id => $id });
 }
 

@@ -8,6 +8,8 @@ use Shiren::View::Sample;
 
 use Shiren::Page::Main::Index;
 use Shiren::View::Main::Index;
+use Shiren::Page::Main::Signup::Index;
+use Shiren::View::Main::Signup::Index;
 
 my $BASE_PAGE_MODULE_PATH = "Shiren::Page::";
 my $BASE_VIEW_MODULE_PATH = "Shiren::View::";

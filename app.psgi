@@ -32,4 +32,5 @@ builder {
         mount '/' => $app1;
     };
 	mount '/' => Shiren::Dispatcher->dispatch("Main::Index");
+	mount '/sample' => Shiren::Dispatcher->dispatch("Sample");
 };

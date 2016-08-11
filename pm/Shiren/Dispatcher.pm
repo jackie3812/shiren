@@ -3,6 +3,9 @@ package Shiren::Dispatcher;
 use strict;
 use warnings;
 
+use Shiren::Page::Sample;
+use Shiren::View::Sample;
+
 use Shiren::Page::Main::Index;
 use Shiren::View::Main::Index;
 

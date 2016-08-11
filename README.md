@@ -6,7 +6,10 @@ I'm wellcomimg any of your comment to my code!
 
 ### Class Discription
 #### app.psgi file
-* I'm currently not sure how should i use this file... want to use as a dispatcher...
+* connect URL with Dispathcer
+
+#### Dispathcer Class
+* Create page ongejct to collect variables with DB operations. Output is PSGI format response form View class.
 
 #### Page Class
 * It aims to work with Func Class to collect variables to pass View Class. Page Class should not have "Logic".

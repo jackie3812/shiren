@@ -2,5 +2,7 @@ Fill in the form to sign up<br>
 
 <form action "/signup/conirm">
 	name:<input type="text" name="name" size="20">
+	password:<input type="password" name="password" size="20">
+	password(confirm):<input type="password" name="password2" size="20">
 	<input type="submit" value="submit"><input type="reset" value="reset">
 </form>

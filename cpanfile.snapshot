@@ -25,6 +25,16 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Bit-Vector-7.4
+    pathname: S/ST/STBEY/Bit-Vector-7.4.tar.gz
+    provides:
+      Bit::Vector 7.4
+      Bit::Vector::Overload 7.4
+      Bit::Vector::String 7.4
+    requirements:
+      Carp::Clan 5.3
+      ExtUtils::MakeMaker 0
+      Storable 2.21
   CPAN-Meta-2.150005
     pathname: D/DA/DAGOLDEN/CPAN-Meta-2.150005.tar.gz
     provides:
@@ -62,6 +72,13 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Carp-Clan-6.06
+    pathname: K/KE/KENTNL/Carp-Clan-6.06.tar.gz
+    provides:
+      Carp::Clan 6.06
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::Exception 0
   Class-Accessor-0.34
     pathname: K/KA/KASEI/Class-Accessor-0.34.tar.gz
     provides:
@@ -85,6 +102,19 @@ DISTRIBUTIONS
       Class::Accessor::Lite 0.08
     requirements:
       ExtUtils::MakeMaker 6.36
+  Class-Data-Accessor-0.04004
+    pathname: C/CL/CLACO/Class-Data-Accessor-0.04004.tar.gz
+    provides:
+      Class::Data::Accessor 0.04004
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.66
+  Class-Data-Inheritable-0.08
+    pathname: T/TM/TMTM/Class-Data-Inheritable-0.08.tar.gz
+    provides:
+      Class::Data::Inheritable 0.08
+    requirements:
+      ExtUtils::MakeMaker 0
   Class-Inspector-1.28
     pathname: A/AD/ADAMK/Class-Inspector-1.28.tar.gz
     provides:
@@ -316,6 +346,19 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.42
       Test::More 0.96
       perl 5.008001
+  Date-Calc-6.4
+    pathname: S/ST/STBEY/Date-Calc-6.4.tar.gz
+    provides:
+      Date::Calc 6.4
+      Date::Calc::Object 6.4
+      Date::Calc::PP 6.4
+      Date::Calendar 6.4
+      Date::Calendar::Profiles 6.4
+      Date::Calendar::Year 6.4
+    requirements:
+      Bit::Vector 7.4
+      Carp::Clan 6.04
+      ExtUtils::MakeMaker 0
   DateTime-1.36
     pathname: D/DR/DROLSKY/DateTime-1.36.tar.gz
     provides:
@@ -348,6 +391,23 @@ DISTRIBUTIONS
       strict 0
       warnings 0
       warnings::register 0
+  DateTime-Format-Strptime-1.68
+    pathname: D/DR/DROLSKY/DateTime-Format-Strptime-1.68.tar.gz
+    provides:
+      DateTime::Format::Strptime 1.68
+    requirements:
+      Carp 0
+      DateTime 1.00
+      DateTime::Locale 0.45
+      DateTime::TimeZone 0.79
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Package::DeprecationManager 0.15
+      Params::Validate 1.20
+      Try::Tiny 0
+      constant 0
+      strict 0
+      warnings 0
   DateTime-Locale-1.05
     pathname: D/DR/DROLSKY/DateTime-Locale-1.05.tar.gz
     provides:
@@ -806,6 +866,24 @@ DISTRIBUTIONS
       base 0
       strict 0
       warnings 0
+  Email-Valid-1.200
+    pathname: R/RJ/RJBS/Email-Valid-1.200.tar.gz
+    provides:
+      Email::Valid 1.200
+    requirements:
+      ExtUtils::MakeMaker 0
+      Mail::Address 0
+      Scalar::Util 0
+      Test::More 0
+      perl 5.006
+  Email-Valid-Loose-0.05
+    pathname: M/MI/MIYAGAWA/Email-Valid-Loose-0.05.tar.gz
+    provides:
+      Email::Valid::Loose 0.05
+    requirements:
+      Email::Valid 0.17
+      ExtUtils::MakeMaker 0
+      Test::More 0.32
   Encode-Locale-1.05
     pathname: G/GA/GAAS/Encode-Locale-1.05.tar.gz
     provides:
@@ -815,6 +893,14 @@ DISTRIBUTIONS
       Encode::Alias 0
       ExtUtils::MakeMaker 0
       perl 5.008
+  Exporter-Tiny-0.042
+    pathname: T/TO/TOBYINK/Exporter-Tiny-0.042.tar.gz
+    provides:
+      Exporter::Shiny 0.042
+      Exporter::Tiny 0.042
+    requirements:
+      ExtUtils::MakeMaker 6.17
+      perl 5.006001
   ExtUtils-Config-0.008
     pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
     provides:
@@ -912,6 +998,41 @@ DISTRIBUTIONS
       Filesys::Notify::Simple 0.12
     requirements:
       ExtUtils::MakeMaker 6.30
+  FormValidator-Simple-0.29
+    pathname: L/LY/LYOKATO/FormValidator-Simple-0.29.tar.gz
+    provides:
+      FormValidator::Simple 0.29
+      FormValidator::Simple::ArrayList undef
+      FormValidator::Simple::Constants undef
+      FormValidator::Simple::Constraint undef
+      FormValidator::Simple::Constraint::Iterator undef
+      FormValidator::Simple::Constraints undef
+      FormValidator::Simple::Data undef
+      FormValidator::Simple::Exception undef
+      FormValidator::Simple::Iterator undef
+      FormValidator::Simple::Messages undef
+      FormValidator::Simple::Profile undef
+      FormValidator::Simple::Profile::Iterator undef
+      FormValidator::Simple::Profile::Record undef
+      FormValidator::Simple::Result undef
+      FormValidator::Simple::Results undef
+      FormValidator::Simple::Validator undef
+    requirements:
+      Class::Accessor 0.22
+      Class::Data::Accessor 0.03
+      Class::Data::Inheritable 0.04
+      Class::Inspector 1.13
+      Date::Calc 5.4
+      DateTime::Format::Strptime 1.07
+      Email::Valid 0.15
+      Email::Valid::Loose 0.04
+      ExtUtils::MakeMaker 6.42
+      List::MoreUtils 0.16
+      Mail::Address 0
+      Scalar::Util 0
+      Tie::IxHash 1.21
+      UNIVERSAL::require 0.1
+      YAML 0.39
   HTTP-Body-1.22
     pathname: G/GE/GETTY/HTTP-Body-1.22.tar.gz
     provides:
@@ -1033,6 +1154,56 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006002
+  List-MoreUtils-0.416
+    pathname: R/RE/REHSACK/List-MoreUtils-0.416.tar.gz
+    provides:
+      List::MoreUtils 0.416
+      List::MoreUtils::PP 0.416
+      List::MoreUtils::XS 0.416
+    requirements:
+      Carp 0
+      Exporter::Tiny 0.038
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Path 0
+      File::Spec 0
+      IPC::Cmd 0
+      XSLoader 0.22
+      base 0
+  MailTools-2.18
+    pathname: M/MA/MARKOV/MailTools-2.18.tar.gz
+    provides:
+      Mail undef
+      Mail::Address 2.18
+      Mail::Cap 2.18
+      Mail::Field 2.18
+      Mail::Field::AddrList 2.18
+      Mail::Field::Date 2.18
+      Mail::Field::Generic 2.18
+      Mail::Filter 2.18
+      Mail::Header 2.18
+      Mail::Internet 2.18
+      Mail::Mailer 2.18
+      Mail::Mailer::qmail 2.18
+      Mail::Mailer::rfc822 2.18
+      Mail::Mailer::sendmail 2.18
+      Mail::Mailer::smtp 2.18
+      Mail::Mailer::smtp::pipe 2.18
+      Mail::Mailer::smtps 2.18
+      Mail::Mailer::smtps::pipe 2.18
+      Mail::Mailer::testfile 2.18
+      Mail::Mailer::testfile::pipe 2.18
+      Mail::Send 2.18
+      Mail::Util 2.18
+    requirements:
+      Date::Format 0
+      Date::Parse 0
+      ExtUtils::MakeMaker 0
+      IO::Handle 0
+      Net::Domain 1.05
+      Net::SMTP 1.03
+      Test::More 0
   Module-Build-0.4218
     pathname: L/LE/LEONT/Module-Build-0.4218.tar.gz
     provides:
@@ -1195,6 +1366,20 @@ DISTRIBUTIONS
       POSIX 0
       Time::Local 0
       perl 5.008001
+  Package-DeprecationManager-0.17
+    pathname: D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz
+    provides:
+      Package::DeprecationManager 0.17
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      List::Util 1.33
+      Package::Stash 0
+      Params::Util 0
+      Sub::Install 0
+      Sub::Name 0
+      strict 0
+      warnings 0
   Package-Stash-0.37
     pathname: D/DO/DOY/Package-Stash-0.37.tar.gz
     provides:
@@ -1446,6 +1631,17 @@ DISTRIBUTIONS
       Scalar::Util 0
       strict 0
       warnings 0
+  Sub-Name-0.15
+    pathname: E/ET/ETHER/Sub-Name-0.15.tar.gz
+    provides:
+      Sub::Name 0.15
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      XSLoader 0
+      perl 5.006
+      strict 0
+      warnings 0
   Sub-Uplevel-0.2600
     pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.2600.tar.gz
     provides:
@@ -1643,6 +1839,49 @@ DISTRIBUTIONS
     requirements:
       Test::More 0
       perl 5.005
+  TimeDate-2.30
+    pathname: G/GB/GBARR/TimeDate-2.30.tar.gz
+    provides:
+      Date::Format 2.24
+      Date::Format::Generic 2.24
+      Date::Language 1.10
+      Date::Language::Afar 0.99
+      Date::Language::Amharic 1.00
+      Date::Language::Austrian 1.01
+      Date::Language::Brazilian 1.01
+      Date::Language::Bulgarian 1.01
+      Date::Language::Chinese 1.00
+      Date::Language::Chinese_GB 1.01
+      Date::Language::Czech 1.01
+      Date::Language::Danish 1.01
+      Date::Language::Dutch 1.02
+      Date::Language::English 1.01
+      Date::Language::Finnish 1.01
+      Date::Language::French 1.04
+      Date::Language::Gedeo 0.99
+      Date::Language::German 1.02
+      Date::Language::Greek 1.00
+      Date::Language::Hungarian 1.01
+      Date::Language::Icelandic 1.01
+      Date::Language::Italian 1.01
+      Date::Language::Norwegian 1.01
+      Date::Language::Oromo 0.99
+      Date::Language::Romanian 1.01
+      Date::Language::Russian 1.01
+      Date::Language::Russian_cp1251 1.01
+      Date::Language::Russian_koi8r 1.01
+      Date::Language::Sidama 0.99
+      Date::Language::Somali 0.99
+      Date::Language::Spanish 1.00
+      Date::Language::Swedish 1.01
+      Date::Language::Tigrinya 1.00
+      Date::Language::TigrinyaEritrean 1.00
+      Date::Language::TigrinyaEthiopian 1.00
+      Date::Language::Turkish 1.0
+      Date::Parse 2.30
+      Time::Zone 2.24
+    requirements:
+      ExtUtils::MakeMaker 0
   Try-Tiny-0.24
     pathname: E/ET/ETHER/Try-Tiny-0.24.tar.gz
     provides:
@@ -1652,6 +1891,17 @@ DISTRIBUTIONS
       Exporter 5.57
       ExtUtils::MakeMaker 0
       constant 0
+      perl 5.006
+      strict 0
+      warnings 0
+  UNIVERSAL-require-0.18
+    pathname: N/NE/NEILB/UNIVERSAL-require-0.18.tar.gz
+    provides:
+      UNIVERSAL::require 0.18
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Test::More 0.47
       perl 5.006
       strict 0
       warnings 0
@@ -1738,6 +1988,41 @@ DISTRIBUTIONS
       base 0
       lib 0
       perl 5.008
+  XSLoader-0.22
+    pathname: S/SA/SAPER/XSLoader-0.22.tar.gz
+    provides:
+      XSLoader undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0.47
+  YAML-1.18
+    pathname: T/TI/TINITA/YAML-1.18.tar.gz
+    provides:
+      YAML 1.18
+      YAML::Any 1.18
+      YAML::Dumper undef
+      YAML::Dumper::Base undef
+      YAML::Error undef
+      YAML::Loader undef
+      YAML::Loader::Base undef
+      YAML::Marshall undef
+      YAML::Mo undef
+      YAML::Node undef
+      YAML::Tag undef
+      YAML::Type::blessed undef
+      YAML::Type::code undef
+      YAML::Type::glob undef
+      YAML::Type::ref undef
+      YAML::Type::regexp undef
+      YAML::Type::undef undef
+      YAML::Types undef
+      YAML::Warning undef
+      yaml_mapping undef
+      yaml_scalar undef
+      yaml_sequence undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008001
   namespace-autoclean-0.28
     pathname: E/ET/ETHER/namespace-autoclean-0.28.tar.gz
     provides:

@@ -15,4 +15,11 @@ sub redirect_to {
     return $res->to_app;
 }
 
+sub global_time {
+	my $class = shift;
+	my ($c) = @_;
+
+	return $c->cachable("global_time", sub {time});
+}
+
 1;

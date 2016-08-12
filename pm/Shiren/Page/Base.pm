@@ -5,6 +5,7 @@ use warnings;
 
 use Plack::Request;
 use Carp;
+use FormValidator::Simple;
 use Shiren::Page::Context;
 
 use parent qw/Class::Accessor/;
@@ -41,9 +42,29 @@ sub request {
 sub dispatch {
 	my $self = shift;
 
+	$self->validate;
+
 	$self->pre_action;
 	$self->action;
 	$self->post_action;
+}
+
+sub validate {
+	my $self = shift;
+	my $class = ref $self;
+
+	my $validate_conditions = $class->validate_conditions;
+	return undef unless scalar @$validate_conditions > 0;
+
+	my $result = FormValidator::Simple->check($self->get_request => $validate_conditions);
+	use Data::Dumper;print Dumper $result->error;
+	die if $result->has_error;
+}
+
+# override
+sub validate_conditions {
+	my $class = shift;
+	return +[];
 }
 
 # override

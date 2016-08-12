@@ -1,6 +1,6 @@
 Fill in the form to sign up<br>
 
-<form action "/signup/conirm">
+<form action "/signup/exec">
 	name:<input type="text" name="name" size="20">
 	password:<input type="password" name="password" size="20">
 	password(confirm):<input type="password" name="password2" size="20">

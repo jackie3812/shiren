@@ -17,5 +17,5 @@ my $dbh = DBI->connect("$dsn", "$username", "$pass");
 
 print Teng::Schema::Dumper->dump(
     dbh       => $dbh,
-    namespace => "Shiren::Mode;",
+    namespace => "Shiren::Model",
 ), "\n";

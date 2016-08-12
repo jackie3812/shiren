@@ -8,15 +8,14 @@ use parent qw/Teng/;
 sub get_teng_obj {
 	my $class = shift;
 	my ($c) = @_;
+    my $teng_obj = $c->cachable(
+        "teng_obj",
+        sub {$class->new(
+                connect_info => [ dsn(), username(), password(), \(connect_options()) ]
+        );}
+    );
 
-	my $teng_obj = $c->get("teng_obj");
-
-	unless (defined $teng_obj) {
-		$teng_obj = $class->new(connect_info => [ dsn(), username(), password(), \(connect_options()) ]);
-		$c->set("teng_obj", $teng_obj);
-	}
-
-	return $teng_obj;
+    return $teng_obj;
 }
 
 sub dsn { "dbi:mysql:database=shiren;host=localhost" }

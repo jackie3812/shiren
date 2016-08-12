@@ -52,12 +52,12 @@ sub dispatch {
 sub validate {
 	my $self = shift;
 	my $class = ref $self;
+	my $req = $self->get("request");
 
 	my $validate_conditions = $class->validate_conditions;
 	return undef unless scalar @$validate_conditions > 0;
 
-	my $result = FormValidator::Simple->check($self->get_request => $validate_conditions);
-	use Data::Dumper;print Dumper $result->error;
+	my $result = FormValidator::Simple->check($req => $validate_conditions);
 	die if $result->has_error;
 }
 

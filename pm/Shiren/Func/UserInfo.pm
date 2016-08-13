@@ -13,4 +13,12 @@ sub is_registered_name {
 	return $row ? 1 : 0;
 }
 
+sub initialize {
+	my $class = shift;
+	my ($c, $name, $pass) = @_;
+
+	my $user_info_row = Shiren::Model::UserInfo->initialize($c, $name, $pass);
+	return $user_info_row;
+}
+
 1;

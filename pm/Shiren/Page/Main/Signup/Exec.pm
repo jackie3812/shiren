@@ -7,6 +7,7 @@ use Digest::SHA qw/sha256/;
 
 use Shiren::Func::UserInfo;
 use Shiren::Func::Util qw/redirect_to global_time/;
+use Shiren::Func::Transaction qw/begin commit rollback/;
 use parent qw/Shiren::Page::Base/;
 
 sub validate_conditions {
@@ -27,6 +28,7 @@ sub pre_action {
 	return redirect_to($c, "/signup/index") if Shiren::Func::UserInfo->is_registered_name($c, $req->param("name"));
 
 	# passが一致しているかの確認
+	# TODO 別にSHA通してから一致確認しなくても良いかも。F::UserInfoでinitializeする時で良さそう
 	my $digested_pass = sha256($req->param("pass"));
 	my $digested_pass2 = sha256($req->param("pass2"));
 	return redirect_to($c, "/signup/index") unless $digested_pass eq $digested_pass2;
@@ -36,7 +38,14 @@ sub pre_action {
 sub action {
 	my $self = shift;
 	my ($c) = $self->get("context");
+	my $req = $self->get("request");
+
 	my $digested_pass = $c->get_cache("digested_pass");
+	my $name = $req->param("name");
+
+	begin($c);
+	my $user_info_row = Shiren::Func::UserInfo->initialize($c, $name, $digested_pass);
+	commit($c);
 }
 
 1;

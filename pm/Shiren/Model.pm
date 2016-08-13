@@ -11,7 +11,7 @@ sub get_teng_obj {
     my $teng_obj = $c->cachable(
         "teng_obj",
         sub {$class->new(
-                connect_info => [ dsn(), username(), password(), \(connect_options()) ]
+                connect_info => [ dsn(), username(), password(), connect_options() ]
         );}
     );
 
@@ -24,6 +24,19 @@ sub username { "shiren" }
 
 sub password { "shiren" }
 
-sub connect_options { () }
+sub connect_options { +{AutoCommit => 0} }
+
+# tengのupdateだとupdated_rowsが返ってくるのでちょっと頑張る
+sub seq_id {
+    my $class = shift;
+    my ($teng, $table_name) = @_;
+    my $sth = $teng->execute(
+        "UPDATE $table_name set id=LAST_INSERT_ID(id+1)"
+    );
+    my $seq_id = $sth->{'mysql_insertid'};
+    $sth->finish;
+
+    return $seq_id;
+}
 
 1;

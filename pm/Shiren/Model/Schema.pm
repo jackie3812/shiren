@@ -13,15 +13,5 @@ table {
     );
 };
 
-table {
-    name 'userhoge';
-    pk 'id';
-    columns (
-        {name => 'id', type => 4},
-        {name => 'name', type => 12},
-        {name => 'created_at', type => 4},
-    );
-};
-
 1;
 

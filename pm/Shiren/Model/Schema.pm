@@ -3,7 +3,15 @@ use strict;
 use warnings;
 use Teng::Schema::Declare;
 table {
-    name 'user';
+    name 'seq_user';
+    pk 'id';
+    columns (
+        {name => 'id', type => 4},
+    );
+};
+
+table {
+    name 'user_info';
     pk 'id';
     columns (
         {name => 'id', type => 4},

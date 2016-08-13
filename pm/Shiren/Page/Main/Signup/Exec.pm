@@ -5,7 +5,7 @@ use warnings;
 
 use Digest::SHA qw/sha256/;
 
-use Shiren::Func::User;
+use Shiren::Func::UserInfo;
 use Shiren::Func::Util qw/redirect_to global_time/;
 use parent qw/Shiren::Page::Base/;
 
@@ -24,7 +24,7 @@ sub pre_action {
 	my $req = $self->get("request");
 
 	# すでに登録済みのnameはダメ
-	return redirect_to($c, "/signup/index") if Shiren::Func::User->is_registered_name($c, $req->param("name"));
+	return redirect_to($c, "/signup/index") if Shiren::Func::UserInfo->is_registered_name($c, $req->param("name"));
 
 	# passが一致しているかの確認
 	my $digested_pass = sha256($req->param("pass"));

@@ -3,8 +3,8 @@ package Shiren::Page::Sample;
 use strict;
 use warnings;
 
-use Shiren::Func::Util;
-use Shiren::Model::User;
+use Shiren::Func::Util qw/global_time/;
+use Shiren::Model::UserInfo;
 use parent qw/Shiren::Page::Base/;
 
 sub action {
@@ -15,15 +15,15 @@ sub action {
 	my $sample_var = "sample var";
 	my $sample_var2 = "fugapiyo";
 
-	my $row = Shiren::Model::User->select_by_key($c, "id", "1");
+	my $row = Shiren::Model::UserInfo->select_by_key($c, "id", "0");
 	my $name = $row->name;
 
 	my $var = +{};
 	$var->{sample_var} = $sample_var;
 	$var->{sample_var2} = $sample_var2;
 	$var->{name_from_db} = $name;
-	$var->{time1} = Shiren::Func::Util->global_time($c);
-	$var->{time2} = Shiren::Func::Util->global_time($c);
+	$var->{time1} = global_time($c);
+	$var->{time2} = global_time($c);
 
 	$self->set_action_var($var);
 }

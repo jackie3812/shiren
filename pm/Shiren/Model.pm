@@ -34,7 +34,6 @@ sub seq_id {
         "UPDATE $table_name set id=LAST_INSERT_ID(id+1)"
     );
     my $seq_id = $sth->{'mysql_insertid'};
-    $sth->finish;
 
     return $seq_id;
 }

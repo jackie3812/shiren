@@ -5,7 +5,6 @@ use warnings;
 
 use Shiren::Func::Util;
 use Shiren::Model::User;
-use Shiren::Model::UserHoge;
 use parent qw/Shiren::Page::Base/;
 
 sub action {
@@ -16,7 +15,7 @@ sub action {
 	my $sample_var = "sample var";
 	my $sample_var2 = "fugapiyo";
 
-	my $row = Shiren::Model::User->select($c,"1");
+	my $row = Shiren::Model::User->select_by_key($c, "id", "1");
 	my $name = $row->name;
 
 	my $var = +{};

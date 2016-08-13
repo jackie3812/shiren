@@ -3,8 +3,10 @@ package Shiren::Page::Main::Signup::Exec;
 use strict;
 use warnings;
 
+use Digest::SHA;
+
 use Shiren::Func::User;
-use Shiren::Func::Util;
+use Shiren::Func::Util qw/redirect_to global_time/;
 use parent qw/Shiren::Page::Base/;
 
 sub validate_conditions {
@@ -22,7 +24,7 @@ sub pre_action {
 	my $req = $self->get("request");
 
 	# すでに登録済みのnameはダメ
-	return Shiren::Func::Util->redirect_to($c, "/signup/index") if Shiren::Func::User->is_registered_name($c, $req->param("name"));
+	return redirect_to($c, "/signup/index") if Shiren::Func::User->is_registered_name($c, $req->param("name"));
 }
 
 

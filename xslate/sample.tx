@@ -2,7 +2,6 @@ this is sample template<br>
 sample_var:[% sample_var %]<br>
 sample_var2:[% sample_var2 %]<br>
 name_from_db:[% name_from_db%]<br>
-name_from_db_hoge:[% name_from_db_hoge%]<br>
 
 time1:[% time1 %]
 time2:[% time2 %]

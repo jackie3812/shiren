@@ -19,14 +19,10 @@ sub action {
 	my $row = Shiren::Model::User->select($c,"1");
 	my $name = $row->name;
 
-	my $rowhoge = Shiren::Model::UserHoge->select($c, 1);
-	my $namehoge = $rowhoge->name;
-
 	my $var = +{};
 	$var->{sample_var} = $sample_var;
 	$var->{sample_var2} = $sample_var2;
 	$var->{name_from_db} = $name;
-	$var->{name_from_db_hoge} = $namehoge;
 	$var->{time1} = Shiren::Func::Util->global_time($c);
 	$var->{time2} = Shiren::Func::Util->global_time($c);
 

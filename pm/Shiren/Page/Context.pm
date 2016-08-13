@@ -26,6 +26,28 @@ sub cachable {
 	return $value;
 }
 
+sub set_cache {
+	my $self = shift;
+	my ($key, $origin) = @_;
+
+	my $value = $self->get($key);
+	Carp::croak("trying to overwrite cached value with key:$key") if defined $value;
+
+	if (ref($origin) eq ("CODE")) {
+		$value = $origin->();
+	} else {
+		$value = $origin;
+	}
+	Carp::croak("tyring to cache undef value") unless defined $value;
+	$self->set($key, $value);
+}
+
+sub get_cache {
+	my $self = shift;
+	my ($key) = @_;
+	return $self->get("$key");
+}
+
 sub has_redirect {
 	my $self = shift;
 	return $self->redirect_value ? 1 : 0;

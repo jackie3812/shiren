@@ -30,11 +30,13 @@ sub pre_action {
 	my $digested_pass = sha256($req->param("pass"));
 	my $digested_pass2 = sha256($req->param("pass2"));
 	return redirect_to($c, "/signup/index") unless $digested_pass eq $digested_pass2;
+	$c->set_cache("digested_pass", $digested_pass); # actionで再度計算させない
 }
-
 
 sub action {
 	my $self = shift;
+	my ($c) = $self->get("context");
+	my $digested_pass = $c->get_cache("digested_pass");
 }
 
 1;

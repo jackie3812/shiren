@@ -45,8 +45,8 @@ sub dispatch {
 	$self->validate;
 
 	$self->pre_action;
-	$self->action;
-	$self->post_action;
+	$self->action unless $self->has_redirect;
+	$self->post_action unless $self->has_redirect;
 }
 
 sub validate {
@@ -70,20 +70,27 @@ sub validate_conditions {
 # override
 sub pre_action {
 	my $self = shift;
-
-	# TODO validationあればここでまとめてやりたい。各Page層はvalidation conditionを書くだけ
 }
 
 # override
 sub action {
 	my $self = shift;
-
-	Carp::croak("Page::action must be overridden");
 }
 
 # override
 sub post_action {
 	my $self = shift;
+}
+
+sub has_redirect {
+	my $self = shift;
+	return $self->redirect_value ? 1 : 0;
+}
+
+sub redirect_value {
+	my $self = shift;
+	my ($c) = $self->get("context");
+	return $c->redirect_value;
 }
 
 1;

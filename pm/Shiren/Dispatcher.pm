@@ -26,8 +26,17 @@ sub dispatch {
 		my $page = $PAGE_PATH->new($env);
 		$page->dispatch;
 
+		# redirectが発生したらここで返す
+		return $class->redirect($page) if $page->has_redirect;
+
 		$class->view($MODULE_NAME, $page);
 	}
+}
+
+sub redirect {
+	my $class = shift;
+	my ($page) = @_;
+	return $page->redirect_value;
 }
 
 # Page層とView層の橋渡し

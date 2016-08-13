@@ -6,13 +6,17 @@ use warnings;
 use Plack::Response;
 
 sub redirect_to {
-    my $class = shift;
-    my ($url) = @_;
+	my $class = shift;
+	my ($c, $url) = @_;
 
-    my $res = Plack::Response->new;
-    $res->redirect($url);
+# 既にredirectが先の処理で呼ばれていたら上書きはしない
+	return undef if $c->has_redirect;
 
-    return $res->to_app;
+	my $res = Plack::Response->new;
+	$res->redirect($url);
+	my $redirect_value = $res->finalize;
+
+	$c->cachable("redirect", $redirect_value);
 }
 
 sub global_time {

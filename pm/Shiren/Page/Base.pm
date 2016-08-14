@@ -39,6 +39,12 @@ sub request {
 	return Plack::Request->new($env);
 }
 
+sub env {
+	my $self = shift;
+	my $req = $self->get("request");
+	return $req->env;
+}
+
 sub dispatch {
 	my $self = shift;
 

@@ -13,6 +13,7 @@ builder {
     #    mount '/piyo' => $app2;
     #    mount '/' => $app1;
     #};
+	enable 'Session';
 	mount '/sample' => Shiren::Dispatcher->dispatch("Sample");
 
 	mount '/' => Shiren::Dispatcher->dispatch("Main::Index");

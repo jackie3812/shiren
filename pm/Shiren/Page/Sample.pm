@@ -3,7 +3,6 @@ package Shiren::Page::Sample;
 use strict;
 use warnings;
 
-use Plack::Session;
 use Shiren::Func::Util qw/global_time/;
 use Shiren::Model::UserInfo;
 use parent qw/Shiren::Page::Base/;
@@ -26,7 +25,7 @@ sub action {
 	$var->{time1} = global_time($c);
 	$var->{time2} = global_time($c);
 
-	my $session = Plack::Session->new($self->env);
+	my $session = $self->session;
 	$var->{id} = $session->id;
 	my $tmp = $session->get("index") || 0;
 	$tmp++;

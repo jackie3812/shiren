@@ -3,6 +3,7 @@ package Shiren::Page::Base;
 use strict;
 use warnings;
 
+use Plack::Session;
 use Plack::Request;
 use Carp;
 use FormValidator::Simple;
@@ -97,6 +98,12 @@ sub redirect_value {
 	my $self = shift;
 	my ($c) = $self->get("context");
 	return $c->redirect_value;
+}
+
+sub session {
+	my $self = shift;
+	my $env = $self->env;
+	return Plack::Session->new($env);
 }
 
 1;

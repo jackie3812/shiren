@@ -39,7 +39,6 @@ sub action {
 	my $self = shift;
 	my ($c) = $self->get("context");
 	my $req = $self->get("request");
-
 	my $digested_pass = $c->get_cache("digested_pass");
 	my $name = $req->param("name");
 
@@ -54,7 +53,8 @@ sub action {
 
 sub post_action {
 	my $self = shift;
-	redirect_to("/profile");
+	my $c = $self->get("context");
+	redirect_to($c, "/profile");
 }
 
 1;

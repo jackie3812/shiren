@@ -11,6 +11,8 @@ use Shiren::View::Main::Index;
 use Shiren::Page::Main::Signup::Index;
 use Shiren::View::Main::Signup::Index;
 use Shiren::Page::Main::Signup::Exec;
+use Shiren::Page::Main::Profile;
+use Shiren::View::Main::Profile;
 
 my $BASE_PAGE_MODULE_PATH = "Shiren::Page::";
 my $BASE_VIEW_MODULE_PATH = "Shiren::View::";

@@ -21,4 +21,9 @@ sub initialize {
 	return $user_info_row;
 }
 
+sub select {
+	my $class = shift;
+	my ($c, $user_id) = @_;
+	return Shiren::Model::UserInfo->select_by_key($c, "id", $user_id);
+}
 1;

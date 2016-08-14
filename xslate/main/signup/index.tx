@@ -1,8 +1,8 @@
 Fill in the form to sign up<br>
 
-<form action "/signup/exec">
-	name:<input type="text" name="name" size="20">
-	password:<input type="password" name="pass" size="20">
-	password(confirm):<input type="password" name="pass2" size="20">
+<form action = "/signup/exec">
+	name:<input type="text" name="name" size="20"><br>
+	password:<input type="password" name="pass" size="20"><br>
+	password(confirm):<input type="password" name="pass2" size="20"><br>
 	<input type="submit" value="submit"><input type="reset" value="reset">
 </form>

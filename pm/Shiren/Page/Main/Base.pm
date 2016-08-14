@@ -1,9 +1,10 @@
-package Shiren::Page::Main::Signup::Index;
+package Shiren::Page::Main::Base;
 
 use strict;
 use warnings;
 
 use Shiren::Func::Util qw/redirect_to/;
+use Shiren::Model::UserInfo;
 use parent qw/Shiren::Page::Base/;
 
 sub pre_action {
@@ -12,11 +13,12 @@ sub pre_action {
 	my $session = $self->session;
 
 	my $user_id = $session->get("user_id");
-	redirect_to($c, "/profile") if $user_id;
-}
+	redirect_to($c, "/index") unless $user_id;
 
-sub action {
-	my $self = shift;
+	my $user_info = Shiren::Func::UserInfo->select($c, $user_id);
+	redirect_to($c, "/index") unless $user_info;
+
+	$c->set("user_info", $user_info);
 }
 
 1;

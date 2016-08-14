@@ -1,4 +1,4 @@
-package Shiren::View::Main::Index;
+package Shiren::View::Index;
 
 use strict;
 use warnings;

@@ -5,20 +5,11 @@ use warnings;
 
 use Shiren::Func::Util qw/redirect_to/;
 use Shiren::Model::UserInfo;
-use parent qw/Shiren::Page::Base/;
+use parent qw/Shiren::Page::Main::Base/;
 
 sub pre_action {
 	my $self = shift;
-	my $c = $self->get("context");
-	my $session = $self->session;
-
-	my $user_id = $session->get("user_id");
-	redirect_to($c, "/index") unless $user_id;
-
-	my $user_info = Shiren::Func::UserInfo->select($c, $user_id);
-	redirect_to($c, "/index") unless $user_info;
-
-	$c->set("user_info", $user_info);
+	$self->SUPER::pre_action;
 }
 
 sub action {

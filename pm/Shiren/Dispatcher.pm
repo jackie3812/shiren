@@ -6,11 +6,11 @@ use warnings;
 use Shiren::Page::Sample;
 use Shiren::View::Sample;
 
-use Shiren::Page::Main::Index;
-use Shiren::View::Main::Index;
-use Shiren::Page::Main::Signup::Index;
-use Shiren::View::Main::Signup::Index;
-use Shiren::Page::Main::Signup::Exec;
+use Shiren::Page::Index;
+use Shiren::View::Index;
+use Shiren::Page::Signup::Index;
+use Shiren::View::Signup::Index;
+use Shiren::Page::Signup::Exec;
 use Shiren::Page::Main::Profile;
 use Shiren::View::Main::Profile;
 

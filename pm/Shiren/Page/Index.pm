@@ -1,4 +1,4 @@
-package Shiren::Page::Main::Index;
+package Shiren::Page::Index;
 
 use strict;
 use warnings;

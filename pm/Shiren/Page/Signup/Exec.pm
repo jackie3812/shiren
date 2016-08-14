@@ -1,4 +1,4 @@
-package Shiren::Page::Main::Signup::Exec;
+package Shiren::Page::Signup::Exec;
 
 use strict;
 use warnings;

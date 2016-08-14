@@ -1,4 +1,4 @@
-package Shiren::Page::Signup::Exec;
+package Shiren::Page::Signin::Exec;
 
 use strict;
 use warnings;
@@ -15,7 +15,6 @@ sub validate_conditions {
 	return +[
 		name  => ['NOT_BLANK', 'ASCII', ['LENGTH', 1, 20]],
 		pass  => ['NOT_BLANK', 'ASCII', ['LENGTH', 1, 20]],
-		pass2 => ['NOT_BLANK', 'ASCII', ['LENGTH', 1, 20]]
 	];
 }
 
@@ -29,31 +28,25 @@ sub pre_action {
 	my $user_id = $session->get("user_id");
 	redirect_to($c, "/profile") if $user_id;
 
-	# すでに登録済みのnameはダメ
-	return redirect_to($c, "/signup/index") if Shiren::Func::UserInfo->is_registered_name($c, $req->param("name"));
+	# 存在しないnameだったらリダイレクト
+	return redirect_to($c, "/signin/index") unless Shiren::Func::UserInfo->is_registered_name($c, $req->param("name"));
 
 	# passが一致しているかの確認
-	# TODO 別にSHA通してから一致確認しなくても良いかも。F::UserInfoでinitializeする時で良さそう
 	my $digested_pass = sha256($req->param("pass"));
-	my $digested_pass2 = sha256($req->param("pass2"));
-	return redirect_to($c, "/signup/index") unless $digested_pass eq $digested_pass2;
-	$c->set_cache("digested_pass", $digested_pass); # actionで再度計算させない
+	my $user_info_row = Shiren::Func::UserInfo->select_by_name($c, $req->param("name"));
+	my $pass = $user_info_row->pass;
+	return redirect_to($c, "/signin/index") unless $digested_pass eq $pass;
+
+	$c->set("user_id", $user_info_row->id);
 }
 
 sub action {
 	my $self = shift;
 	my ($c) = $self->get("context");
-	my $req = $self->get("request");
-	my $digested_pass = $c->get_cache("digested_pass");
-	my $name = $req->param("name");
-
-	begin($c);
-	my $user_info_row = Shiren::Func::UserInfo->initialize($c, $name, $digested_pass);
-	commit($c);
 
 	# sessionに突っ込む
 	my $session = $self->session;
-	$session->set("user_id", $user_info_row->id);
+	$session->set("user_id", $c->get("user_id"));
 }
 
 sub post_action {

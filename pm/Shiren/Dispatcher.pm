@@ -11,6 +11,10 @@ use Shiren::View::Index;
 use Shiren::Page::Signup::Index;
 use Shiren::View::Signup::Index;
 use Shiren::Page::Signup::Exec;
+use Shiren::Page::Signin::Index;
+use Shiren::View::Signin::Index;
+use Shiren::Page::Signin::Exec;
+use Shiren::Page::Main::Signout;
 use Shiren::Page::Main::Profile;
 use Shiren::View::Main::Profile;
 

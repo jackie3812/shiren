@@ -1,2 +1,4 @@
 this is profile page<br>
 your name:[% name %]<br>
+
+<a href="/signout">Sign out</a><br>

@@ -17,9 +17,11 @@ builder {
 	enable 'Session', store => Plack::Session::Store::File->new(dir => 'script/session');
 	mount '/sample' => Shiren::Dispatcher->dispatch("Sample");
 
-	mount '/' => Shiren::Dispatcher->dispatch("Index");
-	mount '/signup' => Shiren::Dispatcher->dispatch("Signup::Index");
+	mount '/'            => Shiren::Dispatcher->dispatch("Index");
+	mount '/signup'      => Shiren::Dispatcher->dispatch("Signup::Index");
 	mount '/signup/exec' => Shiren::Dispatcher->dispatch("Signup::Exec");
-#	mount '/signin' => Shiren::Dispatcher->dispatch("Main::Signin");
-	mount '/profile' => Shiren::Dispatcher->dispatch("Main::Profile");
+	mount '/signin'      => Shiren::Dispatcher->dispatch("Signin::Index");
+	mount '/signin/exec' => Shiren::Dispatcher->dispatch("Signin::Exec");
+	mount '/signout'     => Shiren::Dispatcher->dispatch("Main::Signout");
+	mount '/profile'     => Shiren::Dispatcher->dispatch("Main::Profile");
 };

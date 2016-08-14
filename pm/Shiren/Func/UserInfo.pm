@@ -26,4 +26,12 @@ sub select {
 	my ($c, $user_id) = @_;
 	return Shiren::Model::UserInfo->select_by_key($c, "id", $user_id);
 }
+
+# nameはpkなのでok
+sub select_by_name {
+	my $class = shift;
+	my ($c, $name) = @_;
+	return Shiren::Model::UserInfo->select_by_key($c, "name", $name);
+}
+
 1;

@@ -1,4 +1,4 @@
-package Shiren::View::Signup::Index;
+package Shiren::View::Signin::Index;
 
 use strict;
 use warnings;

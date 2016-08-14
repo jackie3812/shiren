@@ -46,6 +46,15 @@ sub action {
 	begin($c);
 	my $user_info_row = Shiren::Func::UserInfo->initialize($c, $name, $digested_pass);
 	commit($c);
+
+	# sessionに突っ込む
+	my $session = $self->session;
+	$session->set("user_id", $user_info_row->id);
+}
+
+sub post_action {
+	my $self = shift;
+	redirect_to("/profile");
 }
 
 1;

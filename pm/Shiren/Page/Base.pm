@@ -103,7 +103,8 @@ sub redirect_value {
 sub session {
 	my $self = shift;
 	my $env = $self->env;
-	return Plack::Session->new($env);
+	my $c = $self->get("context");
+	return $c->cachable("session", sub { Plack::Session->new($env) });
 }
 
 1;

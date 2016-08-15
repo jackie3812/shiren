@@ -25,6 +25,7 @@ table {
         {name => 'challenge_id', type => 4},
         {name => 'user_id', type => 4},
         {name => 'lv', type => 4},
+        {name => 'exp', type => 4},
         {name => 'hp', type => 4},
         {name => 'max_hp', type => 4},
         {name => 'power', type => 4},

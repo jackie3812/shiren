@@ -1,0 +1,4 @@
+this is challenge index page<br>
+challenge_id:[% challenge_id %]<br>
+user_id:[% user_id %]<br>
+lv:[% lv %]<br>

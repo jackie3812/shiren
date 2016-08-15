@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `user_challenge`(
 	`challenge_id` INT NOT NULL,
 	`user_id`      INT NOT NULL,
 	`lv`           INT NOT NULL,
+	`exp`          INT NOT NULL,
 	`hp`           INT NOT NULL,
 	`max_hp`       INT NOT NULL,
 	`power`        INT NOT NULL,

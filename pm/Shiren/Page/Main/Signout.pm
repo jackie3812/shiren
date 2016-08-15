@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use Shiren::Func::Util qw/redirect_to/;
-use Shiren::Model::UserInfo;
 use parent qw/Shiren::Page::Main::Base/;
 
 sub pre_action {

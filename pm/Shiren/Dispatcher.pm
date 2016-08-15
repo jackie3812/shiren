@@ -8,6 +8,7 @@ use Shiren::View::Sample;
 
 use Shiren::Page::Index;
 use Shiren::View::Index;
+
 use Shiren::Page::Signup::Index;
 use Shiren::View::Signup::Index;
 use Shiren::Page::Signup::Exec;
@@ -17,6 +18,10 @@ use Shiren::Page::Signin::Exec;
 use Shiren::Page::Main::Signout;
 use Shiren::Page::Main::Profile;
 use Shiren::View::Main::Profile;
+
+use Shiren::Page::Main::ChallengeStart;
+use Shiren::Page::Main::Challenge::Index;
+use Shiren::View::Main::Challenge::Index;
 
 my $BASE_PAGE_MODULE_PATH = "Shiren::Page::";
 my $BASE_VIEW_MODULE_PATH = "Shiren::View::";

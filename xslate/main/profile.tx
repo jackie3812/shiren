@@ -1,4 +1,5 @@
 this is profile page<br>
 your name:[% name %]<br>
+challenge_id:[% challenge_id %]<br>
 
 <a href="/signout">Sign out</a><br>

@@ -15,10 +15,11 @@ sub initialize {
 	$teng->insert(
 		'user_info',
 		{
-			id         => $id,
-			name       => $name,
-			pass       => $pass,
-			created_at => global_time($c),
+			id           => $id,
+			name         => $name,
+			pass         => $pass,
+			challenge_id => 0, # 挑戦中でない場合は0
+			created_at   => global_time($c),
 		}
 	);
 	return $teng->single('user_info', { id => $id });

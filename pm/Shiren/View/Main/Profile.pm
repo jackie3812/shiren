@@ -13,6 +13,7 @@ sub view {
 
 	my $view = +{};
 	$view->{name} = $user_info->name;
+	$view->{challenge_id} = $user_info->challenge_id;
 
 	my $html = $class->render($view);
 	$class->to_app($request, $html);
